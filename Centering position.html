@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>使用CSS实现元素居中显示</title>
+  <style>
+    body {
+      width: 400px;
+      margin: 0 auto;
+      text-align: center;
+      border: 1px solid red;
+    }
+    hr { margin: 20px 0;}
+    body>div {
+      box-sizing: border-box;
+      border: 1px solid blue;
+      margin: 0 auto;
+    }
+    body>div>div {
+       background-color: orangered;
+    }
+
+
+    /*ex指代的是example，ele指代的是element*/
+    /* 计算偏移值实现定位居中 */
+    .ex1 {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+    .ex1 .ele1 {
+      position: absolute; 
+      left: 50%;
+      top: 50%;
+      width: 100px;
+      height: 100px;
+      margin-left: -50px; 
+      margin-top: -50px;  
+    }
+    /*使用margin:auto实现定位居中*/
+    .ex2 {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+    .ex2 .ele2 {
+      position: absolute; 
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 100px;
+      height: 100px;
+      margin: auto;
+    }
+    /*使用transform实现定位居中*/
+    .ex3 {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+    .ex3 .ele3 {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 100px;
+      height: 100px;
+      transform: translate(-50%, -50%);
+    }
+
+    /*使用table实现定位居中*/
+    .table {
+        display: table;
+        width: 200px;
+        height: 200px;
+    }
+    .table .inner {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        background-color: transparent;
+    }
+    .table .table_ele {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-color: orangered;
+    }
+    /*使用inline实现定位居中*/
+    .inline {
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        line-height: 200px;
+    }
+    .inline .inline_ele {
+        display: inline;
+        font-size: 0;
+        padding: 50px;
+    }
+    /*使用伪元素before实现定位居中*/
+    .before {
+        width: 200px;
+        height: 200px;
+        font-size: 0;
+    }
+    .before::before {
+        display: inline-block;
+        content: '';
+        height: 100%;
+        vertical-align: middle;
+    }
+    .before .before_ele {
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+    vertical-align: middle;
+    }
+
+    /*使用box实现定位居中*/
+    .box {
+        display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+        width: 200px;
+        height: 200px;
+    }
+    .box .box_ele {
+        width: 100px;
+        height: 100px;
+    }
+    /*使用flexbox实现定位居中*/
+    .flexbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+    }
+    .flexbox .flexbox_ele {
+        width: 100px;
+        height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <h2>计算偏移值实现定位居中</h2>
+  <div class="ex1">
+    <div class="ele1"></div>
+  </div>
+    <hr>
+  <h2>使用margin:auto实现定位居中</h2>
+  <div class="ex2">
+    <div class="ele2"></div>
+  </div>
+    <hr>
+  <h2>使用transform实现定位居中</h2>
+  <div class="ex3">
+    <div class="ele3"></div>
+  </div>
+
+  <hr>
+
+  <h2>使用table实现定位居中</h2>
+  <div class="table">
+      <div class="inner">
+          <div class="table_ele"></div>
+      </div>
+  </div>
+
+  <hr>
+
+  <h2>使用inline实现定位居中</h2>
+  <div class="inline">
+    <div class="inline_ele"> </div>
+  </div>
+
+  <hr>
+
+  <h2>使用伪元素before实现定位居中</h2>
+  <div class="before">
+    <div class="before_ele"> </div>
+  </div>
+
+  <hr>
+
+  <h2>使用box实现定位居中</h2>
+  <div class="box">
+    <div class="box_ele"> </div>
+  </div>
+
+  <hr>
+
+  <h2>使用flexbox实现定位居中</h2>
+  <div class="flexbox">
+    <div class="flexbox_ele"> </div>
+  </div>
+
+</body>
+</html>
